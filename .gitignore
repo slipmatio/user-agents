@@ -7,3 +7,4 @@ cabal-dev
 build/
 *.egg-info
 .venv
+.vscode

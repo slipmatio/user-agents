@@ -9,13 +9,11 @@
 
 ## Installation
 
-![Build status](https://secure.travis-ci.org/selwin/python-user-agents.png)
+`slipmatio-user-agents` is hosted on [PyPI](http://pypi.python.org/pypi/slipmatio-user-agents/) and can be installed with uv:
 
-`user-agents` is hosted on [PyPI](http://pypi.python.org/pypi/user-agents/) and can be installed as such:
+    uv add slipmatio-user-agents
 
-    pip install pyyaml ua-parser user-agents
-
-Alternatively, you can also get the latest source code from [Github](https://github.com/selwin/python-user-agents) and install it manually.
+Alternatively, you can also get the latest source code from [Github](https://github.com/slipmatio/user-agents) and install it manually.
 
 ## Usage
 
@@ -118,4 +116,4 @@ str(user_agent) # returns "PC / Windows 8 / IE 10"
 
 ## Running Tests
 
-    python -m unittest discover
+    uv run python -m unittest src/user_agents/tests.py

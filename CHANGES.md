@@ -2,7 +2,7 @@
 
 ### Version 2025.5.0 ()
 
-- Refactored project to use `uv` and `pytest`, moved CI to GitHub Actions.
+- Refactored project to use `uv`, moved CI to GitHub Actions.
 - Upgraded `ua-parser` to version 1.0.0. Thanks @AndreyKlychnikov!
 - Removed Python 2 compatibility code. Thanks @AndreyKlychnikov!
 
