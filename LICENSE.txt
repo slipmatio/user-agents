@@ -1,3 +1,5 @@
+Copyright (c) 2025 Ville Säävuori
+Copyright (c) 2025 Andrew Klyuchnikov
 Copyright (c) 2013 Selwin Ong
 
 Permission is hereby granted, free of charge, to any person obtaining
