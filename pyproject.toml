@@ -1,6 +1,6 @@
 [project]
 name = "slipmatio-user-agents"
-version = "2025.5.0"
+version = "2025.5.1"
 description = "A library to identify devices (phones, tablets) and their capabilities by parsing browser user agent strings."
 readme = "README.md"
 authors = [{ name = "Ville Säävuori", email = "ville@slipmat.io" }]

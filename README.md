@@ -1,4 +1,6 @@
-# Python User Agents
+# User Agents
+
+This is an opinionated fork of [python-user-agents](https://github.com/selwin/python-user-agents). The aim is to use modern tooling and keep the package up to date to be useful and safe. PRs welcome!
 
 `user_agents` is a Python library that provides an easy way to identify/detect devices like mobile phones, tablets and their capabilities by parsing (browser/HTTP) user agent strings. The goal is to reliably detect whether:
 
@@ -117,3 +119,7 @@ str(user_agent) # returns "PC / Windows 8 / IE 10"
 ## Running Tests
 
     uv run python -m unittest src/user_agents/tests.py
+
+## Contributing
+
+Contributions are welcome! Please follow the [code of conduct](./CODE_OF_CONDUCT.md) when interacting with others.

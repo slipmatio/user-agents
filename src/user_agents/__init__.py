@@ -1,3 +1,3 @@
-VERSION = (2, 2, 0)
+VERSION = (2025, 5, 1)
 
 from .parsers import parse
