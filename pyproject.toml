@@ -1,0 +1,21 @@
+[project]
+name = "user-agents"
+version = "2025.5.0"
+description = "A library to identify devices (phones, tablets) and their capabilities by parsing browser user agent strings."
+readme = "README.md"
+authors = [{ name = "Ville Säävuori", email = "ville@slipmat.io" }]
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "ua-parser>=1.0.1"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.11.9",
+]
