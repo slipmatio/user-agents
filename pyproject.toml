@@ -23,9 +23,22 @@ dev = [
     "ruff>=0.11.9",
 ]
 
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
 [project.urls]
 Changelog = "https://github.com/slipmatio/user-agents/blob/main/CHANGES.md"
 Bluesky = "https://bsky.app/profile/uninen.net"
 Source = "https://github.com/slipmatio/user-agents"
 Twitter = "https://twitter.com/uninen"
-
