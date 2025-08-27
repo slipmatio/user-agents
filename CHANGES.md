@@ -1,6 +1,10 @@
 # Changelog
 
-### Version 2025.5.0 ()
+### Version NEXT
+
+- Expose `UserAgent.ua`
+
+### Version 2025.5.0 (2025-05-11)
 
 - Refactored project to use `uv`, moved CI to GitHub Actions.
 - Upgraded `ua-parser` to version 1.0.0. Thanks @AndreyKlychnikov!

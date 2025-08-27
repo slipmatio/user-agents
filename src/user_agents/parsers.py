@@ -121,9 +121,7 @@ def parse_browser(family, major=None, minor=None, patch=None, patch_minor=None):
 OperatingSystem = namedtuple("OperatingSystem", ["family", "version", "version_string"])
 
 
-def parse_operating_system(
-    family, major=None, minor=None, patch=None, patch_minor=None
-):
+def parse_operating_system(family, major=None, minor=None, patch=None, patch_minor=None):
     version = parse_version(major, minor, patch)
     version_string = ".".join([str(v) for v in version])
     return OperatingSystem(family, version, version_string)
@@ -138,18 +136,25 @@ def parse_device(family, brand, model):
 
 class UserAgent(object):
     def __init__(self, user_agent_string):
-        ua = parser.parse(user_agent_string).with_defaults()
+        self.ua = parser.parse(user_agent_string).with_defaults()
         self.ua_string = user_agent_string
         self.os = parse_operating_system(
-            ua.os.family, ua.os.major, ua.os.minor, ua.os.patch
+            self.ua.os.family,
+            self.ua.os.major,
+            self.ua.os.minor,
+            self.ua.os.patch,
         )
         self.browser = parse_browser(
-            ua.user_agent.family,
-            ua.user_agent.major,
-            ua.user_agent.minor,
-            ua.user_agent.patch,
+            self.ua.user_agent.family,
+            self.ua.user_agent.major,
+            self.ua.user_agent.minor,
+            self.ua.user_agent.patch,
         )
-        self.device = parse_device(ua.device.family, ua.device.brand, ua.device.model)
+        self.device = parse_device(
+            self.ua.device.family,
+            self.ua.device.brand,
+            self.ua.device.model,
+        )
 
     def __str__(self):
         return "{device} / {os} / {browser}".format(
@@ -159,10 +164,7 @@ class UserAgent(object):
     def _is_android_tablet(self):
         # Newer Android tablets don't have "Mobile" in their user agent string,
         # older ones like Galaxy Tab still have "Mobile" though they're not
-        return (
-            "Mobile Safari" not in self.ua_string
-            and self.browser.family != "Firefox Mobile"
-        )
+        return "Mobile Safari" not in self.ua_string and self.browser.family != "Firefox Mobile"
 
     def _is_blackberry_touch_capable_device(self):
         # A helper to determine whether a BB phone has touch capabilities
@@ -241,10 +243,7 @@ class UserAgent(object):
                 return True
             if self.os.version_string.startswith("8") and "Touch" in self.ua_string:
                 return True
-        if (
-            "BlackBerry" in self.os.family
-            and self._is_blackberry_touch_capable_device()
-        ):
+        if "BlackBerry" in self.os.family and self._is_blackberry_touch_capable_device():
             return True
         return False
 

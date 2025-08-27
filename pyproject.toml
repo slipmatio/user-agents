@@ -1,6 +1,6 @@
 [project]
 name = "slipmatio-user-agents"
-version = "2025.5.1"
+version = "2025.8.0"
 description = "A library to identify devices (phones, tablets) and their capabilities by parsing browser user agent strings."
 readme = "README.md"
 authors = [{ name = "Ville Säävuori", email = "ville@slipmat.io" }]
@@ -20,7 +20,7 @@ classifiers = [
 requires-python = ">=3.12"
 dependencies = [
     "pyyaml>=6.0.2",
-    "ua-parser>=1.0.1"
+    "ua-parser[regex]>=1.0.1",
 ]
 
 [build-system]
@@ -32,8 +32,8 @@ packages = ["src/user_agents"]
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.5",
-    "ruff>=0.11.9",
+    "pytest>=8.4.1",
+    "ruff>=0.12.10"
 ]
 
 [project.urls]
