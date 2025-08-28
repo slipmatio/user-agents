@@ -2,7 +2,9 @@
 
 ### Version NEXT
 
-- Expose `UserAgent.ua`
+- feat: added `macos` argument that modernizes `Mac OS X` to `macOS`
+- feat: expose `UserAgent.ua`
+- chore: removed legacy Silk-related code
 
 ### Version 2025.5.0 (2025-05-11)
 

@@ -135,8 +135,11 @@ def parse_device(family, brand, model):
 
 
 class UserAgent(object):
-    def __init__(self, user_agent_string):
+    def __init__(self, user_agent_string: str, macos: bool = False):
         self.ua = parser.parse(user_agent_string).with_defaults()
+        if macos and self.ua.os.family == "Mac OS X":
+            self.ua.os.family = "macOS"
+
         self.ua_string = user_agent_string
         self.os = parse_operating_system(
             self.ua.os.family,
@@ -263,8 +266,7 @@ class UserAgent(object):
             and self.os.version_string == "ME"
         ):
             return True
-        # TODO: remove after https://github.com/tobie/ua-parser/issues/127 is closed
-        if self.os.family == "Mac OS X" and "Silk" not in self.ua_string:
+        if self.os.family == "Mac OS X" or self.os.family == "macOS":
             return True
         # Maemo has 'Linux' and 'X11' in UA, but it is not for PC
         if "Maemo" in self.ua_string:
@@ -286,5 +288,5 @@ class UserAgent(object):
         return self.browser.family in EMAIL_PROGRAM_FAMILIES
 
 
-def parse(user_agent_string):
-    return UserAgent(user_agent_string)
+def parse(user_agent_string: str, macos: bool = False):
+    return UserAgent(user_agent_string, macos=macos)
