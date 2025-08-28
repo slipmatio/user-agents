@@ -1,4 +1,5 @@
 from collections import namedtuple
+from dataclasses import replace
 
 from ua_parser import parser
 
@@ -136,9 +137,10 @@ def parse_device(family, brand, model):
 
 class UserAgent(object):
     def __init__(self, user_agent_string: str, macos: bool = False):
-        self.ua = parser.parse(user_agent_string).with_defaults()
-        if macos and self.ua.os.family == "Mac OS X":
-            self.ua.os.family = "macOS"
+        ua = parser.parse(user_agent_string).with_defaults()
+        if macos and ua.os.family == "Mac OS X":
+            ua = replace(ua, os=replace(ua.os, family="macOS"))
+        self.ua = ua
 
         self.ua_string = user_agent_string
         self.os = parse_operating_system(
